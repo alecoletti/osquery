@@ -1,8 +1,8 @@
-[![Go Reference](https://pkg.go.dev/badge/github.com/defensestation/osquery@v2.0.0#section-documentation.svg)](https://pkg.go.dev/github.com/defensestation/osquery/v2)[![CircleCI](https://dl.circleci.com/status-badge/img/gh/defensestation/osquery/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/defensestation/osquery/tree/master)
+[![Go Reference](https://pkg.go.dev/badge/github.com/alecoletti/osquery/v2.svg)](https://pkg.go.dev/github.com/alecoletti/osquery/v2)[![CircleCI](https://dl.circleci.com/status-badge/img/gh/alecoletti/osquery/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/alecoletti/osquery/tree/master)
 
 # osquery
 
-This project is based on [esquery](https://github.com/aquasecurity/esquery) which is licensed under the Apache License 2.0.
+This project was forked from [alecoletti/osquery](https://github.com/alecoletti/osquery), which itself originates from [aquasecurity/esquery](https://github.com/aquasecurity/esquery) (Apache-2.0), and was adapted to work with OpenSearch.
 
 ## Modifications
 
@@ -19,10 +19,10 @@ Search Response type has been changed to ```*opensearchapi.SearchResp``` instead
 
 ### Upgrading to v2
 
-Starting from `v2.0.0`, the module path has changed. To upgrade, update your `go.mod` file to:
+This fork uses the module path `github.com/alecoletti/osquery/v2`. Update your `go.mod` file to:
 
 ```bash
-go get github.com/defensestation/osquery/v2
+go get github.com/alecoletti/osquery/v2
 ```
 
 ## License
@@ -63,7 +63,7 @@ This is an early release, API may still change.
 `osquery` is a Go module. To install, simply run this in your project's root directory:
 
 ```bash
-go get github.com/defensestation/osquery/v2
+go get github.com/alecoletti/osquery/v2
 ```
 
 ## Usage
@@ -79,7 +79,7 @@ import (
 	"context"
 	"log"
 
-	"github.com/defensestation/osquery"
+	"github.com/alecoletti/osquery/v2"
 	"github.com/opensearch-project/opensearch-go/v4"
 )
 
