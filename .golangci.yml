@@ -23,6 +23,7 @@ linters:
     - unconvert
     - unparam
     - unused
+    - modernize
   exclusions:
     generated: lax
     presets:

@@ -18,7 +18,7 @@ type SearchRequest struct {
 	explain      *bool
 	from         *uint64
 	highlight    Mappable
-	searchAfter  []interface{}
+	searchAfter  []any
 	postFilter   Mappable
 	query        Mappable
 	size         *uint64
@@ -74,7 +74,7 @@ func (req *SearchRequest) Sort(opts ...SortOption) *SearchRequest {
 }
 
 // SearchAfter retrieve the sorted result
-func (req *SearchRequest) SearchAfter(s ...interface{}) *SearchRequest {
+func (req *SearchRequest) SearchAfter(s ...any) *SearchRequest {
 	req.searchAfter = append(req.searchAfter, s...)
 	return req
 }
@@ -122,13 +122,13 @@ func (req *SearchRequest) ScriptFields(fields ...*ScriptField) *SearchRequest {
 }
 
 // Map converts the SearchRequest to a map for the body.
-func (req *SearchRequest) Map() map[string]interface{} {
-	m := make(map[string]interface{})
+func (req *SearchRequest) Map() map[string]any {
+	m := make(map[string]any)
 	if req.query != nil {
 		m["query"] = req.query.Map()
 	}
 	if len(req.aggs) > 0 {
-		aggs := make(map[string]interface{})
+		aggs := make(map[string]any)
 		for _, agg := range req.aggs {
 			aggs[agg.Name()] = agg.Map()
 		}
@@ -164,7 +164,7 @@ func (req *SearchRequest) Map() map[string]interface{} {
 	}
 
 	if len(req.scriptFields) > 0 {
-		scripts := make(map[string]interface{})
+		scripts := make(map[string]any)
 		for _, script := range req.scriptFields {
 			scripts[script.Name()] = script.Map()
 		}

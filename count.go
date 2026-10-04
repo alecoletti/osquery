@@ -31,8 +31,8 @@ func Count(q Mappable) *CountRequest {
 
 // Map returns a map representation of the request, thus implementing the
 // Mappable interface.
-func (req *CountRequest) Map() map[string]interface{} {
-	return map[string]interface{}{
+func (req *CountRequest) Map() map[string]any {
+	return map[string]any{
 		"query": req.Query.Map(),
 	}
 }
